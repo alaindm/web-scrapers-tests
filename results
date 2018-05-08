@@ -1,0 +1,103 @@
+HTTP Client + JSDOM:
+
+request to zap: 1003.263ms
+Create JSDOM: 277.521ms
+dom-traversal: 36.912ms
+request2: 353.460ms
+
+HTTP Client + Cheerio:
+
+request1: 1172.888ms
+Load Cheerio: 124.336ms
+dom-traversal: 10.086ms
+request2: 523.893ms
+
+====== PUPPETEER ======
+headless false:
+
+browser-launch: 2852.661ms
+new page: 408.947ms
+page goto zap: 3817.530ms
+wait for tag: 78.199ms
+get tag: 22.822ms
+get tag2: 9.684ms
+javascript obj creation: 0.122ms
+page goto google: 742.341ms
+browser close: 53.702ms
+
+headless true:
+
+browser-launch: 135.898ms
+new page: 146.060ms
+page goto zap: 3777.709ms
+wait for tag: 64.212ms
+get tag: 30.359ms
+get tag2: 3.698ms
+javascript obj creation: 0.067ms
+page goto google: 736.264ms
+browser close: 27.374ms
+
+JS disabled:
+
+browser-launch: 138.619ms
+new page: 114.992ms
+page goto zap: 2607.362ms
+wait for tag: 10.800ms
+get tag: 3.360ms
+get tag2: 2.230ms
+javascript obj creation: 0.059ms
+page goto google: 278.971ms
+browser close: 27.197ms
+
+Aborting all requests:
+
+browser-launch: 135.711ms
+new page: 124.302ms
+page goto zap: 1352.138ms
+wait for tag: 10.725ms
+get tag: 5.207ms
+get tag2: 2.305ms
+fetch: 81.562ms
+browser close: 13.910ms
+
+
+clicking - all JS and requests enabled:
+
+browser-launch: 130.642ms
+new page: 146.974ms
+page goto zap: 3868.210ms
+wait for tag: 95.437ms
+click: 0.244ms
+wait for tel tag: 799.095ms
+grab phone: 139.476ms
+browser close: 14.506ms
+
+clicking - media, fonts, ads, analytics blocked:
+
+browser-launch: 140.575ms
+new page: 165.102ms
+page goto zap: 1801.871ms
+wait for tag: 11.752ms
+click: 0.246ms
+wait for tel tag: 706.289ms
+grab phone: 15.058ms
+browser close: 21.842ms
+
+----
+
+HTTP Client + Cheerio:
+1.2s
+
+HTTP Client + JSDOM:
+1.3s
+
+====== PUPPETEER ======
+
+Aborting all requests, JS disabled + ajax:
+1.45s
+
+clicking - media, fonts, ads, analytics, css blocked:
+2.5s
+
+clicking - all JS and requests enabled:
+4.8s
